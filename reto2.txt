@@ -1,0 +1,79 @@
+La url del módulo sea client/ las plantillas serán client/ y client/:id.
+
+https://gddea1f2aceb924-bdreto.adb.ca-montreal-1.oraclecloudapps.com
+
+client
+
+GET
+
+SELECT*FROM client
+
+POST
+
+BEGIN
+    INSERT INTO CLIENT(ID,NAME,EMAIL,AGE) VALUES 
+    (:id, :name, :email, :age);
+    :status_code:=201;
+END;
+
+PUT
+
+BEGIN
+   UPDATE CLIENT SET NAME=:name, EMAIL=:email, AGE=:age WHERE ID=: id;
+    :status_code:=201;
+END;
+
+
+DELETE
+
+BEGIN
+   DELETE FROM CLIENT WHERE ID=: id;
+    :status_code:=204;
+END;
+
+
+client/:id
+
+GET
+
+SELECT * FROM CLIENT WHERE ID=: id;
+
+
+La url message/ y las plantillas serán message/ y message/:id.
+
+https://gddea1f2aceb924-bdreto.adb.ca-montreal-1.oraclecloudapps.com
+
+
+message 
+
+GET
+
+SELECT * FROM MESSAGE
+
+POST
+
+BEGIN
+    INSERT INTO MESSAGE(ID,MESSAGETEXT) VALUES (:id, :messagetext);
+    :status_code:=201;
+END;
+
+PUT
+
+BEGIN
+   UPDATE MESSAGE SET MESSAGETEXT=:messagetext WHERE ID=: id;
+    :status_code:=201;
+END;
+
+DELETE
+
+BEGIN
+   DELETE FROM MESSAGE WHERE ID=: id;
+    :status_code:=204;
+END;
+
+
+message/:id
+
+GET
+
+SELECT * FROM MESSAGE WHERE ID=: id;
