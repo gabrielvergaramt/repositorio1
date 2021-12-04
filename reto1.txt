@@ -1,0 +1,40 @@
+La url del módulo sea library/ las plantillas serán library/ y library/:id.
+
+https://gddea1f2aceb924-bdreto.adb.ca-montreal-1.oraclecloudapps.com
+
+
+library
+
+GET
+
+SELECT*FROM LIBRARY
+
+POST
+
+BEGIN
+    INSERT INTO LIBRARY (ID,TARGET,CAPACITY,CATEGORY_ID,NAME) VALUES (:id, :target, :capacity, :category_id, :name);
+    :status_code:=201;
+END;
+
+PUT
+
+BEGIN
+    UPDATE LIBRARY SET TARGET=:target, CAPACITY=:capacity,
+    CATEGORY_ID=:category_id, NAME=:name WHERE ID=:id;
+    :status_code:=201;
+END;
+
+DELETE
+
+BEGIN
+    DELETE FROM LIBRARY  WHERE ID=:id;
+    :status_code:=204;
+END;
+
+
+library/:id
+
+GET
+
+SELECT*FROM LIBRARY WHERE ID=:id
+
